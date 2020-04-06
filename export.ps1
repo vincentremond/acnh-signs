@@ -4,7 +4,6 @@ function ExportImage ($name, $width, $height) {
         "-f", """$($name).svg""", `
         "-e", """$($name).png"""
         )
-    inkscape -f "$($name).svg" -e "$($name).png"
     for ($x = 0; $x -lt $width; $x++) {
         for ($y = 0; $y -lt $height; $y++) {
             $x0 = ($x + 0) * 32
@@ -24,3 +23,4 @@ function ExportImage ($name, $width, $height) {
 
 ExportImage "forbidden" 2 1
 ExportImage "test" 2 2
+ExportImage "gift" 2 1
