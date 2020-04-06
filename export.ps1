@@ -1,8 +1,3 @@
-Set-Alias inkscape "C:\Program Files\Inkscape\inkscape.exe"
-
-function ExportArea($x0, $y0, $x1, $y1, $outFile) {
-}
-
 function ExportImage ($name, $width, $height) {
     Write-Host """$($name).png"""
     Start-Process "C:\Program Files\Inkscape\inkscape.exe" -Wait -ArgumentList ( `
@@ -23,20 +18,9 @@ function ExportImage ($name, $width, $height) {
                 "-e", """$($ef)""", `
                 "--export-area=""$($x0):$($y0):$($x1):$($y1)""" `
                 )
-            #inkscape -f "$($name).svg" -e "$($name)-$($x)-$($y).png" --export-area="$($x0):$($y0):$($x1):$($y1)"
         }
     }
 }
-
-
-
-#
-#inkscape -f forbidden.svg -e forbidden-1.png --export-area=0:0:32:32
-ExportArea 0 0 64 32 "forbidden.png"
-ExportArea 0 0 32 32 "forbidden-1.png"
-ExportArea 32 0 64 32 "forbidden-2.png"
-
-
 
 ExportImage "forbidden" 2 1
 ExportImage "test" 2 2
